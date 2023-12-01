@@ -16,7 +16,11 @@
 
 # Background Context
 
-![depositphotos_118567166-stock-photo-sea-shell-on-background](https://github.com/CoolstanHackwares/simple_shell/assets/136029637/a01236e7-c680-44be-8f6e-a37f4a9b7251)
+<h1 align ="center">simple_shell :shell:</h1><br>
+<p align="center">
+<img src="https://purepng.com/public/uploads/large/purepng.com-sea-ocean-shellobjectsnatureshellseabeach-9615246773146d5qf.png">
+</p>
+<hr />
 
 
 * Write a simple UNIX command interpreter.
