@@ -61,7 +61,7 @@ void print_environment(void)
 
 	while (*env != NULL)
 	{
-		size_t len = strlen(*env);
+		size_t len = _strlen(*env);
 
 		/* Use write to print the environment string to STDOUT */
 		write(STDOUT_FILENO, *env, len);
