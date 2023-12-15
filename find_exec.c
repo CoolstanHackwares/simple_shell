@@ -55,17 +55,13 @@ char *_strdup(const char *str)
  * print_environment - A function that prints the current environment
  * This program conforms to the betty documentation style
  **/
-
 void print_environment(void)
 {
 	char **env = environ;
 
 	while (*env != NULL)
 	{
-		size_t len = 0;
-
-		while ((*env)[len] != '\0')
-			len++;
+		size_t len = strlen(*env);
 
 		/* Use write to print the environment string to STDOUT */
 		write(STDOUT_FILENO, *env, len);
@@ -74,3 +70,4 @@ void print_environment(void)
 		env++;
 	}
 }
+

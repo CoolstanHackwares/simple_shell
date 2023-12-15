@@ -20,21 +20,36 @@ void print_error(const char *msg)
 
 int _setenv(char *args[])
 {
-	if (args[1] != NULL && args[2] != NULL)
+	if (args[1] != NULL && args[2] == NULL)
 	{
+		/*Set environment variable with no value*/
+		if (setenv(args[1], "", 1) != 0)
+		{
+			print_error("setenv failed\n");
+			return (1);
+		}
+		print_environment(); /*Display the environment*/
+		return (1);
+	}
+	else if (args[1] != NULL && args[2] != NULL)
+	{
+		/*Set environment variable with a value*/
 		if (setenv(args[1], args[2], 1) != 0)
 		{
 			print_error("setenv failed\n");
 			return (1);
 		}
+		print_environment(); /*Display the environment*/
 		return (1);
 	}
 	else
 	{
-		print_error("Usage: setenv VARIABLE VALUE\n");
+		print_error("Usage:\n");
+		print_error("  setenv VARIABLE [VALUE]\n");
 		return (1);
 	}
 }
+
 
 /**
  * _unsetenv - A function that handles the unsetenv builtin command
