@@ -70,6 +70,7 @@ int execute_command(char *command_cache)
 {
 	char *args[MAX_ARGUMENTS];
 	pid_t pid;
+	int exec_result;
 
 	if (prepare_command_args(command_cache, args) == -1)
 		return (-1);
@@ -87,10 +88,16 @@ int execute_command(char *command_cache)
 	}
 	else if (pid == 0)
 	{
-		return (execute_child(args));
+		exec_result = execute_child(args);
+
+		if (exec_result == -1)
+		{
+			my_exit(command_cache, 0);
+		}
+		return exec_result;
 	}
 	else
 	{
-		return (execute_parent(pid));
+		return execute_parent(pid);
 	}
 }
