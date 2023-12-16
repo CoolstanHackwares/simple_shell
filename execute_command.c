@@ -94,10 +94,10 @@ int execute_command(char *command_cache)
 		{
 			my_exit(command_cache, 0);
 		}
-		return exec_result;
+		return (exec_result);
 	}
 	else
 	{
-		return execute_parent(pid);
+		return (execute_parent(pid));
 	}
 }
