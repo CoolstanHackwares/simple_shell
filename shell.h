@@ -41,7 +41,7 @@ char *_strtok(char *s, const char *del);
 void print_error(const char *msg);
 int _setenv(char *args[]);
 int _unsetenv(char *args[]);
-
+int execute_log_ops(char *left_command, char *right_command, char *operator);
 
 #define PROMPT_SIZE 2
 #define MAX_ARGUMENTS 64
