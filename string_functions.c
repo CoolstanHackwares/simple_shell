@@ -94,7 +94,7 @@ char *_strtok(char *s, const char *del)
  **/
 
 int _atoi(char *s)
-{	
+{
 	int a, n, x;
 
 	a = n = 0;

@@ -25,22 +25,22 @@ int _setenv(char *args[])
 		/*Set environment variable with no value*/
 		if (setenv(args[1], "", 1) != 0)
 		{
-			print_error("setenv failed\n");
+			perror("setenv failed\n");
 			return (1);
 		}
 		print_environment(); /*Display the environment*/
-		return (1);
+		return (0);
 	}
 	else if (args[1] != NULL && args[2] != NULL)
 	{
 		/*Set environment variable with a value*/
 		if (setenv(args[1], args[2], 1) != 0)
 		{
-			print_error("setenv failed\n");
+			perror("setenv failed\n");
 			return (1);
 		}
 		print_environment(); /*Display the environment*/
-		return (1);
+		return (0);
 	}
 	else
 	{
@@ -64,10 +64,11 @@ int _unsetenv(char *args[])
 	{
 		if (unsetenv(args[1]) != 0)
 		{
-			print_error("unsetenv failed\n");
+			perror("unsetenv failed\n");
 			return (1);
 		}
-		return (1);
+		print_environment(); /* Display the environment */
+		return (0);
 	}
 	else
 	{
